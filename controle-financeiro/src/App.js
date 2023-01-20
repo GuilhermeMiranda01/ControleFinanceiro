@@ -5,6 +5,7 @@ import Month from './components/Month';
 import rightarrow from './assets/right-arrow.png'
 import leftarrow from './assets/left-arrow.png'
 
+
 function App() {
 
   const [month, setMonth] = useState([
@@ -13,6 +14,11 @@ function App() {
   ])
 
   let setRendaProperty = (e) => {
+    if(isNaN(e) || e == 0){
+      return alert("Insira um número")
+    }
+    else
+    {
     month[actualMonth].rendaDoMes = e;
     setMonth(prevState => {
       return month.map((item) => {
@@ -20,6 +26,7 @@ function App() {
         return month.id === actualMonth ? { ...item, rendaDoMes: e } : item
       })
     })
+  }
   }
   let [actualMonth, setActualMonth] = useState(0)
 
@@ -35,7 +42,7 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      <div className='body'>
+      <div>
         <div className='mes'>
           <img src={leftarrow} alt="alt" onClick={previousMonth} className="arrow"/> 
           <span className='monthName'>{month[actualMonth].name}</span>

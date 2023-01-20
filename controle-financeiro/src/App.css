@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   font-family: monospace
 
 }
@@ -42,14 +41,15 @@
 .header{
   text-align: center;
   background-color: #1D1D1D;
+  filter: drop-shadow(2px 1px 5px rgb(24 161 24));
   height: 80px;
   margin-bottom: 10px;
 }
 
 
 .mes{
-  display: inline;
-  
+  margin-top: 30px;
+  text-align: center;
 }
 
 .arrow{
@@ -65,7 +65,47 @@
 }
 
 .body{
-  background-color: wheat;
   width: 60%;
   margin-left: 20%;
 }
+
+input{
+  border-radius: 5px;
+  padding:4px
+}
+
+.input-green{
+  border-color: rgb(24 161 24);
+  width: 200px;
+}
+
+.divRenda {
+  background-color: white;
+  width: 25%;
+  text-align: center;
+  border-radius: 12px;
+  width: 45%;
+  border-color: green;
+  border: 1px solid #03df03;
+  margin-top: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.divGastos {
+  background-color: white;
+  width: 25%;
+  text-align: center;
+  border-radius: 12px;
+  width: 45%;
+  border-color: green;
+  border: 1px solid #cd0000 ;
+  margin-top: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.input-red{
+  border-color: #cd0000;
+}
+
