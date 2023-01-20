@@ -2,56 +2,56 @@ import { useState, setState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Month from './components/Month';
+import rightarrow from './assets/right-arrow.png'
+import leftarrow from './assets/left-arrow.png'
 
 function App() {
 
   const [month, setMonth] = useState([
-    {id: 0, name:"janeiro", rendaDoMes:0},
-    {id: 1, name:"fevereiro", rendaDoMes:0}
-  ]) 
+    { id: 0, name: "janeiro", rendaDoMes: 0 },
+    { id: 1, name: "fevereiro", rendaDoMes: 0 }
+  ])
 
-  let setRendaProperty = (e) =>{
-        month[actualMonth].rendaDoMes = e;
-        setMonth(prevState => {
-          return month.map((item) => {
-              // Check for the item with the specified id and update it
-              return month.id === actualMonth ? {...item, rendaDoMes: e} : item
-          })
+  let setRendaProperty = (e) => {
+    month[actualMonth].rendaDoMes = e;
+    setMonth(prevState => {
+      return month.map((item) => {
+        // Check for the item with the specified id and update it
+        return month.id === actualMonth ? { ...item, rendaDoMes: e } : item
       })
+    })
   }
-  
-  
-
-  let[actualMonth, setActualMonth] = useState(0)
+  let [actualMonth, setActualMonth] = useState(0)
 
 
-  const nextMonth = () =>{
-    setActualMonth(actualMonth+1)
+  const nextMonth = () => {
+    setActualMonth(actualMonth + 1)
   }
 
-  const previousMonth = () =>{
-    setActualMonth(actualMonth-1)
+  const previousMonth = () => {
+    setActualMonth(actualMonth - 1)
   }
-
+/*identar = alt + shift + f */
   return (
     <div className='App'>
-      <Header/>
-     
-      <div className='mes'>
-            <button onClick={previousMonth}>Mês Anterior</button>
-            <span>{month[0].nome}</span>
-            <button onClick={nextMonth}>Próximo Mês</button>
+      <Header />
+      <div className='body'>
+        <div className='mes'>
+          <img src={leftarrow} alt="alt" onClick={previousMonth} className="arrow"/> 
+          <span className='monthName'>{month[actualMonth].name}</span>
+          <img src={rightarrow} alt="alt" onClick={nextMonth} className="arrow" />
         </div>
-      <div>
-      {
-        month.map((m)=>(
-          actualMonth==m.id? (<Month key={month[m.id].id} month={month[m.id]} setRendaProperty={setRendaProperty} />)
-          :
-            (<span></span>)
-        ))
-        }
+        
+        <div className='body'>
+          {
+            month.map((m) => (
+              actualMonth == m.id ? (<Month key={month[m.id].id} month={month[m.id]} setRendaProperty={setRendaProperty} />)
+                :
+                (<span></span>)
+            ))
+          }
+        </div>
       </div>
-     
     </div>
   );
 }
