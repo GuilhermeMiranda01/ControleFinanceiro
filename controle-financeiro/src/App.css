@@ -71,12 +71,13 @@
 
 input{
   border-radius: 5px;
-  padding:4px
+  padding:4px;
 }
 
 .input-green{
   border-color: rgb(24 161 24);
   width: 200px;
+ 
 }
 
 .divRenda {
@@ -103,9 +104,18 @@ input{
   margin-top: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
+  max-height: 500px;
+  overflow: overlay;
+  max-width: 45%;
 }
 
 .input-red{
   border-color: #cd0000;
 }
 
+.table-gastos{
+  width: 507px;
+  font-size: 20px;
+  color:red;
+  margin-top: 20px;
+}
